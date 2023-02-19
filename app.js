@@ -13,7 +13,8 @@ app.use(express.static(path.join(process.cwd(), "uploads")));
 app.use("/images", imagesRoutes);
 app.use("/upload", postRoutes);
 app.use("/add-images", homeRoutes);
-
-app.listen(process.env.PORT || 8080, (port) => {
-    console.log(`App Listening on Port ${process.env.PORT || port}`);
+app.use("/", (req, res) => {
+    res.status(200).sendFile(path.join(process.cwd(), "views", "welcome.html"));
 });
+
+app.listen();
