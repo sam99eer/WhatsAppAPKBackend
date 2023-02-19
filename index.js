@@ -2,6 +2,7 @@ const express = require("express");
 const helmet = require('helmet');
 const app = express();
 const path = require("path");
+const PORT = 4000;
 
 const postRoutes = require("./routes/post-image");
 const homeRoutes = require("./routes/home-routes");
@@ -17,4 +18,8 @@ app.use("/", (req, res) => {
     res.status(200).sendFile(path.join(process.cwd(), "views", "welcome.html"));
 });
 
-app.listen();
+app.listen(PORT, () => {
+    console.log(`API listening on PORT ${PORT} `);
+});
+
+module.exports = app;
