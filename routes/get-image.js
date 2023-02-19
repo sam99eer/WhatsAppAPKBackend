@@ -3,14 +3,13 @@ const fs = require('fs');
 
 
 router.get("/", (req, res) => {
-    fs.readdir("uploads", (err, files) => {
+    fs.readdir("public/uploads", (err, files) => {
         if (err) {
             res.status(404).json({ message: "Some Error Occured" });
             return;
         }
 
-        const filePaths = files.map((fileName) => `uploads/${fileName}`);
-        console.log(filePaths);
+        const filePaths = files.map((fileName) => `http://localhost:8080/uploads/${fileName}`);
         res.status(200).json(filePaths);
     });
 

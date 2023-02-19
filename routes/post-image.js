@@ -2,7 +2,7 @@ const router = require("express").Router();
 const multer = require("multer");
 
 const storage = multer.diskStorage({
-    destination: 'uploads/',
+    destination: 'public/uploads/',
     filename: function (req, file, cb) {
         const extension = file.originalname.split('.').pop();
         cb(null, `${file.fieldname}-${Date.now()}.${extension}`);
