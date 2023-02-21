@@ -7,7 +7,6 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.get("/", (req, res) => {
     fs.readdir("public/uploads", (err, files) => {
         if (err) {
-            console.log(err);
             res.status(404).json({ message: "Some Error Occured" });
             return;
         }
@@ -28,9 +27,12 @@ router.post("/image", (req, res) => {
 
     const filePath = images.split("/");
     const newPath = `${process.cwd()}\\public\\${filePath.at(-2)}\\${filePath.at(-1)}`;
+    console.log(newPath);
     fs.unlink(newPath, (err) => {
         if (err) {
-            res.send(400).send("Unable to delete file");
+            console.log("error -");
+            console.log(err);
+            res.status(400).send("Unable to delete file");
             return;
         }
         res.redirect("/delete");
