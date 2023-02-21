@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const fs = require("fs");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
@@ -26,12 +27,9 @@ router.post("/image", (req, res) => {
     }
 
     const filePath = images.split("/");
-    const newPath = `${process.cwd()}\\public\\${filePath.at(-2)}\\${filePath.at(-1)}`;
-    console.log(newPath);
+    const newPath = path.join(process.cwd(), "public", filePath.at(-2), filePath.at(-1));
     fs.unlink(newPath, (err) => {
         if (err) {
-            console.log("error -");
-            console.log(err);
             res.status(400).send("Unable to delete file");
             return;
         }
