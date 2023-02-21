@@ -23,7 +23,7 @@ const upload = multer({
 });
 
 
-router.post('/post-image', upload.single('pic'), (req, res) => {
+router.post('/post-image', upload.array('pic'), (req, res) => {
     res.redirect("/");
 });
 
