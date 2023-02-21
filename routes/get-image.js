@@ -9,7 +9,8 @@ router.get("/", (req, res) => {
             return;
         }
 
-        const filePaths = files.map((fileName) => `http://13.233.225.54:8080/uploads/${fileName}`);
+        const filePaths = files.map((fileName) => `http://3.15.23.55:8080/uploads/${fileName}`);
+        // const filePaths = files.map((fileName) => `http://13.233.225.54:8080/uploads/${fileName}`);
         res.status(200).json(filePaths);
     });
 

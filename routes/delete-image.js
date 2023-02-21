@@ -7,11 +7,13 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.get("/", (req, res) => {
     fs.readdir("public/uploads", (err, files) => {
         if (err) {
+            console.log(err);
             res.status(404).json({ message: "Some Error Occured" });
             return;
         }
 
-        const filePaths = files.map((fileName) => `http://13.233.225.54:8080/uploads/${fileName}`);
+        const filePaths = files.map((fileName) => `http://3.15.23.55:8080/uploads/${fileName}`);
+        // const filePaths = files.map((fileName) => `http://13.233.225.54:8080/uploads/${fileName}`);
         res.render("delete", { images: filePaths });
     });
 });
