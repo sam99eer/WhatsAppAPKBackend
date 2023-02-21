@@ -4,9 +4,43 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Welcome</title>
+        <style>
+            .actions {
+                padding: 1rem;
+                background-color: lightblue;
+            }
+
+            .actions > p {
+                font-size: 2rem;
+                font-weight: bold;
+                text-decoration: underline;
+            }
+
+            .actions > div {
+                display: flex;
+                align-items: center;
+                gap: 2.5rem;
+            }
+
+            .actions > div > a {
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+                background-color: darkblue;
+                color: cyan;
+                text-decoration: none;
+            }
+        </style>
     </head>
     <body>
         <p>Welcome</p>
+        <p>Server is running and listening!!</p>
+        <div class="actions">
+            <p>Actions</p>
+            <div>
+                <a href="/add-images">Add Image</a>
+                <a href="/delete">Delete Image</a>
+            </div>
+        </div>
     </body>
 </html>

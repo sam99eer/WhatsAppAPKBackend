@@ -24,7 +24,7 @@ const upload = multer({
 
 
 router.post('/post-image', upload.single('pic'), (req, res) => {
-    res.redirect("/add-images");
+    res.redirect("/");
 });
 
 module.exports = router;

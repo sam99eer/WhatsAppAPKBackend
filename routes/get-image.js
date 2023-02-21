@@ -9,7 +9,8 @@ router.get("/", (req, res) => {
             return;
         }
 
-        const filePaths = files.map((fileName) => `http://18.225.37.131:8080/uploads/${fileName}`);
+        // const filePaths = files.map((fileName) => `http://18.225.37.131:8080/uploads/${fileName}`);
+        const filePaths = files.map((fileName) => `http://localhost:8080/uploads/${fileName}`);
         res.status(200).json(filePaths);
     });
 
